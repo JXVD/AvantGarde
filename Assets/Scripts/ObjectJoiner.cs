@@ -20,6 +20,7 @@ public class ObjectJoiner : MonoBehaviour
         {
             FixedJoint parentJoint = parent.AddComponent<FixedJoint>();
             Rigidbody compRigibody = comp.GetComponent<Rigidbody>();
+            compRigibody.freezeRotation = true;
             compRigibody.isKinematic = false;
             compRigibody.useGravity = true;
             totalMass += compRigibody.mass;
