@@ -8,9 +8,15 @@ public class ObjectJoiner : MonoBehaviour
         Transform parentT = parent.transform;
         parent.AddComponent<Rigidbody>();
         parentT.position = center;
+        foreach (GameObject target in components) 
+        {
+            foreach (GameObject other in components)
+            {
+                Physics.IgnoreCollision(target.GetComponent<Collider>(), other.GetComponent<Collider>());
+            }
+        }
         foreach (GameObject comp in components)
         {
-            MeshFilter filter;
             FixedJoint parentJoint = parent.AddComponent<FixedJoint>();
             Rigidbody compRigibody = comp.GetComponent<Rigidbody>();
             compRigibody.isKinematic = false;
