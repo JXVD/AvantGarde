@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4364529979056506}
   - component: {fileID: 65602313062368678}
+  - component: {fileID: 114110648755052566}
   m_Layer: 0
   m_Name: BenchPrefab
   m_TagString: selectable
@@ -125,3 +126,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 150, y: 75, z: 30}
   m_Center: {x: 0, y: 50, z: 0}
+--- !u!114 &114110648755052566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1563608854828494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3693f4176934b433a9621d4ef83f82a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugEnabled: 0
