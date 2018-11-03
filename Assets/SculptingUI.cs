@@ -29,7 +29,7 @@ public class SculptingUI : MonoBehaviour {
     [SerializeField]
     GameObject joiner;
     [SerializeField]
-    float launchThrust = 2000;
+    Vector2 launchThrust = new Vector2(3000, 2000);
     [SerializeField]
     float fieldOfView = 90;
 
@@ -169,7 +169,7 @@ public class SculptingUI : MonoBehaviour {
         centerPosition.z /= foundObjects.Count - 1;
         GameObject sculpture = joiner.GetComponent<ObjectJoiner>().Join("Sculpture", foundObjects.ToArray(), centerPosition);
         Catapult catapult = sculpture.GetComponent<Catapult>();
-        catapult.thrust = launchThrust;
+        catapult.SetThrust(launchThrust);
         catapult.OnLaunch(() => { updateCameraTarget(sculpture.transform, fieldOfView); });
     }
 
