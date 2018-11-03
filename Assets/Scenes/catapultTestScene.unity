@@ -335,7 +335,7 @@ MonoBehaviour:
   - {fileID: 1967465550}
   - {fileID: 1269742823}
   joinCenter: {x: 0, y: 0, z: 0}
-  testThrust: 25
+  testThrust: {x: 200, y: 100}
 --- !u!4 &661762045
 Transform:
   m_ObjectHideFlags: 0

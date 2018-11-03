@@ -11,12 +11,12 @@ public class CatapultFunctionalTest : MonoBehaviour {
     Vector3 joinCenter;
 
     [SerializeField]
-    float testThrust;
+    Vector2 testThrust;
 
     void Start () {
         GameObject sculpture = joiner.Join("SculptureTest", sculptureComponents, joinCenter);
         Catapult catapult = sculpture.GetComponent<Catapult>();
-        catapult.thrust = testThrust;
+        catapult.SetThrust(testThrust);
         catapult.EnableDebug();
 	}
 }
