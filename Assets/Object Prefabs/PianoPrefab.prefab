@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4797970352605776}
   - component: {fileID: 65341965808177138}
+  - component: {fileID: 54389784035205784}
   m_Layer: 0
   m_Name: PianoPrefab
   m_TagString: selectable
@@ -113,6 +114,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1283323557862038}
   m_Mesh: {fileID: 4300000, guid: 52adf80d5512faf459f5f683becee6cb, type: 3}
+--- !u!54 &54389784035205784
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1250302706591740}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &65341965808177138
 BoxCollider:
   m_ObjectHideFlags: 1
