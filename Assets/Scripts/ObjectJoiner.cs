@@ -24,6 +24,7 @@ public class ObjectJoiner : MonoBehaviour
             parentJoint.connectedBody = compRigibody;
             comp.transform.SetParent(parentT);
         }
+        parent.AddComponent<Catapult>();
         return parent;
     }
 }
