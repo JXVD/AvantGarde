@@ -28,6 +28,8 @@ public class SculptingUI : MonoBehaviour {
     System.Random rando = new System.Random();
     [SerializeField]
     GameObject joiner;
+    [SerializeField]
+    float launchThrust = 2000;
 
     // Use this for initialization
     void Start () {
@@ -163,6 +165,8 @@ public class SculptingUI : MonoBehaviour {
         centerPosition.x /= foundObjects.Count - 1;
         centerPosition.y /= foundObjects.Count - 1;
         centerPosition.z /= foundObjects.Count - 1;
-        joiner.GetComponent<ObjectJoiner>().Join("Sculpture", foundObjects.ToArray(), centerPosition);
+        GameObject sculpture = joiner.GetComponent<ObjectJoiner>().Join("Sculpture", foundObjects.ToArray(), centerPosition);
+        Catapult catapult = sculpture.GetComponent<Catapult>();
+        catapult.thrust = launchThrust;
     }
 }
