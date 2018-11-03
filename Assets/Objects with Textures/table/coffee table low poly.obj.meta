@@ -18,6 +18,7 @@ ModelImporter:
     100024: group2_pCylinder8
     100026: group2_pCylinder9
     100028: pCube8_group2
+    100030: coffee_table_low_poly1:group2pCube20
     400000: //RootNode
     400002: group2_pCube10
     400004: group2_pCube11
@@ -33,6 +34,7 @@ ModelImporter:
     400024: group2_pCylinder8
     400026: group2_pCylinder9
     400028: pCube8_group2
+    400030: coffee_table_low_poly1:group2pCube20
     2100000: group2_pCube10Mat
     2100002: group2_pCube11Mat
     2100004: group2_pCube17Mat
@@ -47,6 +49,7 @@ ModelImporter:
     2100022: group2_pCylinder8Mat
     2100024: group2_pCylinder9Mat
     2100026: pCube8_group2Mat
+    2100028: coffee_table_low_poly1_group2pCube20Mat
     2300000: group2_pCube10
     2300002: group2_pCube11
     2300004: group2_pCube17
@@ -61,6 +64,7 @@ ModelImporter:
     2300022: group2_pCylinder8
     2300024: group2_pCylinder9
     2300026: pCube8_group2
+    2300028: coffee_table_low_poly1:group2pCube20
     3300000: group2_pCube10
     3300002: group2_pCube11
     3300004: group2_pCube17
@@ -75,6 +79,7 @@ ModelImporter:
     3300022: group2_pCylinder8
     3300024: group2_pCylinder9
     3300026: pCube8_group2
+    3300028: coffee_table_low_poly1:group2pCube20
     4300000: group2_pCube10
     4300002: group2_pCube11
     4300004: group2_pCube17
@@ -89,6 +94,7 @@ ModelImporter:
     4300022: group2_pCylinder8
     4300024: group2_pCylinder9
     4300026: pCube8_group2
+    4300028: coffee_table_low_poly1:group2pCube20
   externalObjects: {}
   materials:
     importMaterials: 1

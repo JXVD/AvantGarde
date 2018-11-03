@@ -7,22 +7,28 @@ ModelImporter:
     100002: pCylinder29
     100004: pTorus1
     100006: //RootNode
+    100008: pTorus3
     400000: pCylinder28
     400002: pCylinder29
     400004: pTorus1
     400006: //RootNode
+    400008: pTorus3
     2100000: pCylinder28Mat
     2100002: pCylinder29Mat
     2100004: pTorus1Mat
+    2100006: pTorus3Mat
     2300000: pCylinder28
     2300002: pCylinder29
     2300004: pTorus1
+    2300006: pTorus3
     3300000: pCylinder28
     3300002: pCylinder29
     3300004: pTorus1
+    3300006: pTorus3
     4300000: pCylinder28
     4300002: pCylinder29
     4300004: pTorus1
+    4300006: pTorus3
   externalObjects: {}
   materials:
     importMaterials: 1
