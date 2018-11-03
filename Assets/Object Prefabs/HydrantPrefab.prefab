@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 4985575352789410}
   m_Layer: 0
   m_Name: HydrantPrefab
-  m_TagString: Untagged
+  m_TagString: selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -830,7 +830,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1901945570511764}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1570.8745, y: 2558.1, z: 1961.4}
+  m_LocalPosition: {x: 61.52443, y: -446.2932, z: 1991.2823}
   m_LocalScale: {x: 0.70794946, y: 0.70794946, z: 0.70794946}
   m_Children:
   - {fileID: 4216554387633236}
