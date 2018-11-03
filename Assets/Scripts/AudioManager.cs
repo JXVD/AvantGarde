@@ -13,5 +13,6 @@ public class AudioManager : MonoBehaviour {
     {
         musicChannel.clip = sculptingClip;
         musicChannel.Play();
+        musicChannel.loop = true;
     }
 }
