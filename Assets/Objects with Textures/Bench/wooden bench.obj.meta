@@ -1,0 +1,186 @@
+fileFormatVersion: 2
+guid: e98a968eece8be141be776e44bdc259f
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: bench_pCube1
+    100002: bench_pCube10
+    100004: bench_pCube12
+    100006: bench_pCube13
+    100008: bench_pCube14
+    100010: bench_pCube15
+    100012: bench_pCube16
+    100014: bench_pCube4
+    100016: bench_pCube5
+    100018: bench_pCube6
+    100020: bench_pCube7
+    100022: bench_pCube8
+    100024: bench_pCube9
+    100026: bench_pCylinder1
+    100028: bench_pCylinder3
+    100030: pCube11_bench
+    100032: //RootNode
+    400000: bench_pCube1
+    400002: bench_pCube10
+    400004: bench_pCube12
+    400006: bench_pCube13
+    400008: bench_pCube14
+    400010: bench_pCube15
+    400012: bench_pCube16
+    400014: bench_pCube4
+    400016: bench_pCube5
+    400018: bench_pCube6
+    400020: bench_pCube7
+    400022: bench_pCube8
+    400024: bench_pCube9
+    400026: bench_pCylinder1
+    400028: bench_pCylinder3
+    400030: pCube11_bench
+    400032: //RootNode
+    2100000: bench_pCube1Mat
+    2100002: bench_pCube10Mat
+    2100004: bench_pCube12Mat
+    2100006: bench_pCube13Mat
+    2100008: bench_pCube14Mat
+    2100010: bench_pCube15Mat
+    2100012: bench_pCube16Mat
+    2100014: bench_pCube4Mat
+    2100016: bench_pCube5Mat
+    2100018: bench_pCube6Mat
+    2100020: bench_pCube7Mat
+    2100022: bench_pCube8Mat
+    2100024: bench_pCube9Mat
+    2100026: bench_pCylinder1Mat
+    2100028: bench_pCylinder3Mat
+    2100030: pCube11_benchMat
+    2300000: bench_pCube1
+    2300002: bench_pCube10
+    2300004: bench_pCube12
+    2300006: bench_pCube13
+    2300008: bench_pCube14
+    2300010: bench_pCube15
+    2300012: bench_pCube16
+    2300014: bench_pCube4
+    2300016: bench_pCube5
+    2300018: bench_pCube6
+    2300020: bench_pCube7
+    2300022: bench_pCube8
+    2300024: bench_pCube9
+    2300026: bench_pCylinder1
+    2300028: bench_pCylinder3
+    2300030: pCube11_bench
+    3300000: bench_pCube1
+    3300002: bench_pCube10
+    3300004: bench_pCube12
+    3300006: bench_pCube13
+    3300008: bench_pCube14
+    3300010: bench_pCube15
+    3300012: bench_pCube16
+    3300014: bench_pCube4
+    3300016: bench_pCube5
+    3300018: bench_pCube6
+    3300020: bench_pCube7
+    3300022: bench_pCube8
+    3300024: bench_pCube9
+    3300026: bench_pCylinder1
+    3300028: bench_pCylinder3
+    3300030: pCube11_bench
+    4300000: bench_pCube1
+    4300002: bench_pCube10
+    4300004: bench_pCube12
+    4300006: bench_pCube13
+    4300008: bench_pCube14
+    4300010: bench_pCube15
+    4300012: bench_pCube16
+    4300014: bench_pCube4
+    4300016: bench_pCube5
+    4300018: bench_pCube6
+    4300020: bench_pCube7
+    4300022: bench_pCube8
+    4300024: bench_pCube9
+    4300026: bench_pCylinder1
+    4300028: bench_pCylinder3
+    4300030: pCube11_bench
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
