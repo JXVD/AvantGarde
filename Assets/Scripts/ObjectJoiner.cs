@@ -6,7 +6,7 @@ public class ObjectJoiner : MonoBehaviour
     {
         GameObject parent = new GameObject(objectName);
         Transform parentT = parent.transform;
-        parent.AddComponent<Rigidbody>();
+        Rigidbody parentRigidbody = parent.AddComponent<Rigidbody>();
         parentT.position = center;
         foreach (GameObject target in components) 
         {
@@ -15,15 +15,18 @@ public class ObjectJoiner : MonoBehaviour
                 Physics.IgnoreCollision(target.GetComponent<Collider>(), other.GetComponent<Collider>());
             }
         }
+        float totalMass = 0;
         foreach (GameObject comp in components)
         {
             FixedJoint parentJoint = parent.AddComponent<FixedJoint>();
             Rigidbody compRigibody = comp.GetComponent<Rigidbody>();
             compRigibody.isKinematic = false;
             compRigibody.useGravity = true;
+            totalMass += compRigibody.mass;
             parentJoint.connectedBody = compRigibody;
             comp.transform.SetParent(parentT);
         }
+        parentRigidbody.mass = totalMass;
         parent.AddComponent<Catapult>();
         return parent;
     }

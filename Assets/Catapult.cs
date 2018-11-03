@@ -18,12 +18,13 @@ public class Catapult : MonoBehaviour {
         
         if(Input.GetMouseButtonDown(1) && !launched)
         {
-            rb.AddForce(transform.up * thrust);
-            launched = true;
+            rb.AddForce(transform.up * thrust, ForceMode.VelocityChange);
+            rb.AddForce(transform.forward * thrust, ForceMode.VelocityChange);
             if (debugEnabled) {
                 Debug.LogFormat("Launched {0} with {1} thrust", name, thrust);
             }
-        }	
+            launched = true;
+        }
 	}
 
     public void EnableDebug() {
