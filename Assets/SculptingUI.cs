@@ -113,16 +113,16 @@ public class SculptingUI : MonoBehaviour {
                 Quaternion newRotation = selectedObject.transform.rotation;
                 if (selectedArrow.CompareTag("xArrow"))
                 {
-                    newRotation.x += (Input.mousePosition.x - mousePos.x) / 10;
+                    newRotation.x += (Input.mousePosition.y - mousePos.y) / 10;
 
                 }
                 else if (selectedArrow.CompareTag("yArrow"))
                 {
-                    newRotation.y += (Input.mousePosition.y - mousePos.y) / 10;
+                    newRotation.y += (Input.mousePosition.x - mousePos.x) / 10;
                 }
                 else if (selectedArrow.CompareTag("zArrow"))
                 {
-                    newRotation.z += (Input.mousePosition.x - mousePos.x) / 10;
+                    newRotation.z += (Input.mousePosition.y - mousePos.y) / 10;
                 }
                 selectedObject.transform.SetPositionAndRotation(selectedObject.transform.position, newRotation);
                 moveArrows(selectedObject);
@@ -146,7 +146,7 @@ public class SculptingUI : MonoBehaviour {
     public void createObject()
     {
         itemsGenerated++;
-        foundObjects.Add(Instantiate(prefabs[rando.Next(0, prefabs.Length)], this.transform.position, this.transform.rotation));
+        foundObjects.Add(Instantiate(prefabs[rando.Next(0, prefabs.Length)], spawnPoint.transform.position, spawnPoint.transform.rotation));
         
     }
 
