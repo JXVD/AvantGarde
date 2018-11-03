@@ -26,6 +26,9 @@ public class SculptingUI : MonoBehaviour {
     private bool finished;
     private Vector3 centerPosition;
     System.Random rando = new System.Random();
+    [SerializeField]
+    GameObject joiner;
+
     // Use this for initialization
     void Start () {
         finished = false;
@@ -160,5 +163,6 @@ public class SculptingUI : MonoBehaviour {
         centerPosition.x /= foundObjects.Count - 1;
         centerPosition.y /= foundObjects.Count - 1;
         centerPosition.z /= foundObjects.Count - 1;
+        joiner.GetComponent<ObjectJoiner>().Join("Sculpture", foundObjects.ToArray(), centerPosition);
     }
 }
