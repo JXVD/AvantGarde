@@ -20,6 +20,7 @@ ModelImporter:
     100028: bench_pCylinder3
     100030: pCube11_bench
     100032: //RootNode
+    100034: wooden_bench:benchpCube17
     400000: bench_pCube1
     400002: bench_pCube10
     400004: bench_pCube12
@@ -37,6 +38,7 @@ ModelImporter:
     400028: bench_pCylinder3
     400030: pCube11_bench
     400032: //RootNode
+    400034: wooden_bench:benchpCube17
     2100000: bench_pCube1Mat
     2100002: bench_pCube10Mat
     2100004: bench_pCube12Mat
@@ -53,6 +55,7 @@ ModelImporter:
     2100026: bench_pCylinder1Mat
     2100028: bench_pCylinder3Mat
     2100030: pCube11_benchMat
+    2100032: wooden_bench_benchpCube17Mat
     2300000: bench_pCube1
     2300002: bench_pCube10
     2300004: bench_pCube12
@@ -69,6 +72,7 @@ ModelImporter:
     2300026: bench_pCylinder1
     2300028: bench_pCylinder3
     2300030: pCube11_bench
+    2300032: wooden_bench:benchpCube17
     3300000: bench_pCube1
     3300002: bench_pCube10
     3300004: bench_pCube12
@@ -85,6 +89,7 @@ ModelImporter:
     3300026: bench_pCylinder1
     3300028: bench_pCylinder3
     3300030: pCube11_bench
+    3300032: wooden_bench:benchpCube17
     4300000: bench_pCube1
     4300002: bench_pCube10
     4300004: bench_pCube12
@@ -101,6 +106,7 @@ ModelImporter:
     4300026: bench_pCylinder1
     4300028: bench_pCylinder3
     4300030: pCube11_bench
+    4300032: wooden_bench:benchpCube17
   externalObjects: {}
   materials:
     importMaterials: 1
