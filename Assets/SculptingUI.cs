@@ -30,6 +30,8 @@ public class SculptingUI : MonoBehaviour {
     GameObject joiner;
     [SerializeField]
     float launchThrust = 2000;
+    [SerializeField]
+    float fieldOfView = 90;
 
     // Use this for initialization
     void Start () {
@@ -168,5 +170,13 @@ public class SculptingUI : MonoBehaviour {
         GameObject sculpture = joiner.GetComponent<ObjectJoiner>().Join("Sculpture", foundObjects.ToArray(), centerPosition);
         Catapult catapult = sculpture.GetComponent<Catapult>();
         catapult.thrust = launchThrust;
+        catapult.OnLaunch(() => { updateCameraTarget(sculpture.transform, fieldOfView); });
+    }
+
+    void updateCameraTarget(Transform target, float fieldOfView) {
+        CinemachineFreeLook cinemachine = cam.GetComponent<CinemachineFreeLook>();
+        cinemachine.LookAt = target;
+        cinemachine.Follow = target;
+        cinemachine.m_Lens.FieldOfView = fieldOfView;
     }
 }
