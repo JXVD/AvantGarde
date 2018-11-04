@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class ObjectJoiner : MonoBehaviour
 {
@@ -6,28 +7,26 @@ public class ObjectJoiner : MonoBehaviour
     {
         GameObject parent = new GameObject(objectName);
         Transform parentT = parent.transform;
-        Rigidbody parentRigidbody = parent.AddComponent<Rigidbody>();
         parentT.position = center;
-        foreach (GameObject target in components) 
+        List<Collider> colliders = new List<Collider>();
+        for (int i = 0; i < components.Length; i++)
         {
-            foreach (GameObject other in components)
-            {
-                Physics.IgnoreCollision(target.GetComponent<Collider>(), other.GetComponent<Collider>());
+            Collider newCollider = components[i].GetComponent<Collider>();
+            colliders.ForEach((Collider collider) => {
+                Physics.IgnoreCollision(collider, newCollider);
+            });
+            colliders.Add(newCollider);
+            int index = i - 1;
+            if (index == -1) {
+                index = components.Length - 1;
             }
-        }
-        float totalMass = 0;
-        foreach (GameObject comp in components)
-        {
-            FixedJoint parentJoint = parent.AddComponent<FixedJoint>();
-            Rigidbody compRigibody = comp.GetComponent<Rigidbody>();
-            compRigibody.freezeRotation = true;
+            FixedJoint parentJoint = components[index].AddComponent<FixedJoint>();
+            Rigidbody compRigibody = components[i].GetComponent<Rigidbody>();
             compRigibody.isKinematic = false;
             compRigibody.useGravity = true;
-            totalMass += compRigibody.mass;
             parentJoint.connectedBody = compRigibody;
-            comp.transform.SetParent(parentT);
+            components[i].transform.SetParent(parentT);
         }
-        parentRigidbody.mass = totalMass;
         parent.AddComponent<Catapult>();
         return parent;
     }
