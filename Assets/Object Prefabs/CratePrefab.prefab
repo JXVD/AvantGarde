@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 54640503495254086}
   m_Layer: 0
   m_Name: CratePrefab
-  m_TagString: Untagged
+  m_TagString: selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
