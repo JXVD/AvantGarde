@@ -219,10 +219,15 @@ public class SculptingUI : MonoBehaviour {
         onStop.ToggleListening(false);
         onStop.SetVelocityTolerance(onStopTolerance);
         onStop.OnStop(() => {
-            showBuyScreen(score);
-            audioManager.GetComponent<AudioManager>().playMoneyNoise();
-            stopped = true;
-            Instantiate(forceQuitRunner);
+            if (score > 0)
+            {
+                showBuyScreen(score);
+                audioManager.GetComponent<AudioManager>().playMoneyNoise();
+                stopped = true;
+                Instantiate(forceQuitRunner);
+            } else {
+                makeGuyAngry();
+            }
         });
         Catapult catapult = sculpture.GetComponent<Catapult>();
         catapult.SetThrust(launchThrust, maxJitterX);
@@ -232,14 +237,18 @@ public class SculptingUI : MonoBehaviour {
         });
         onFallOffHill.SubscribeOnCollisionEnter((Collision collision) => {
             if (collision.transform.parent == sculpture.transform) {
-                buyGuyUI.SetDialogue(buyGuyRejectDialogue);
-                buyGuyUI.SetToMad();
-                showBuyScreen(0);
-                stopped = true;
-                Instantiate(forceQuitRunner);
+                makeGuyAngry();
             }
         });
         catapult.StartCountdown(timeToLaunchCountdown);
+    }
+
+    void makeGuyAngry() {
+        buyGuyUI.SetDialogue(buyGuyRejectDialogue);
+        buyGuyUI.SetToMad();
+        showBuyScreen(0);
+        stopped = true;
+        Instantiate(forceQuitRunner);
     }
 
     void updateCameraTarget(Transform target, float fieldOfView) {

@@ -12,7 +12,7 @@ public class TriggerOnCollide : MonoBehaviour {
     Action<Collision> onCollide;
 
     public void SubscribeOnCollisionEnter(Action<Collision> onCollide) {
-        onCollide += onCollide;
+        this.onCollide += onCollide;
     }
 
     private void OnCollisionEnter(Collision collision)
