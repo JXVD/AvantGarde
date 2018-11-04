@@ -216,7 +216,7 @@ public class SculptingUI : MonoBehaviour {
         Catapult catapult = sculpture.GetComponent<Catapult>();
         catapult.SetThrust(launchThrust);
         catapult.OnLaunch(() => {
-            updateCameraTarget(sculpture.transform, fieldOfView);
+            updateCameraTarget(sculpture.transform.GetChild(0), fieldOfView);
             catapultPrompt.SetActive(false);
             onStop.ToggleListening(true);
         });
