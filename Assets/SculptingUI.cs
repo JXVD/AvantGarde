@@ -35,8 +35,6 @@ public class SculptingUI : MonoBehaviour {
     [SerializeField]
     GameObject joiner;
     [SerializeField]
-    GameObject catapultPrompt;
-    [SerializeField]
     GameObject buyItScreen;
 
     // Tuning:
@@ -46,6 +44,8 @@ public class SculptingUI : MonoBehaviour {
     float fieldOfView = 90;
     [SerializeField]
     float onStopTolerance = 250;
+    [SerializeField]
+    float timeToLaunchCountdown = 5;
 
     // Debugging
     [SerializeField]
@@ -217,9 +217,9 @@ public class SculptingUI : MonoBehaviour {
         catapult.SetThrust(launchThrust);
         catapult.OnLaunch(() => {
             updateCameraTarget(sculpture.transform.GetChild(0), fieldOfView);
-            catapultPrompt.SetActive(false);
             onStop.ToggleListening(true);
         });
+        catapult.StartCountdown(timeToLaunchCountdown);
     }
 
     void updateCameraTarget(Transform target, float fieldOfView) {
