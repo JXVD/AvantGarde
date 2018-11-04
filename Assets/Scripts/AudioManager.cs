@@ -15,6 +15,9 @@ public class AudioManager : MonoBehaviour {
     [SerializeField]
     AudioClip glassClip;
 
+    [SerializeField]
+    AudioClip moneyClip;
+
     void Start()
     {
         musicChannel.clip = sculptingClip;
@@ -23,6 +26,13 @@ public class AudioManager : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other)
+    {
+        sfxChannel.clip = glassClip;
+        sfxChannel.Play();
+        sfxChannel.loop = false;
+    }
+
+    public void playMoneyNoise()
     {
         sfxChannel.clip = glassClip;
         sfxChannel.Play();
