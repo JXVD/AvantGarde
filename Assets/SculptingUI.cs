@@ -44,6 +44,8 @@ public class SculptingUI : MonoBehaviour {
     [SerializeField]
     Vector2 launchThrust = new Vector2(3000, 2000);
     [SerializeField]
+    float maxJitterX = 1;
+    [SerializeField]
     float fieldOfView = 90;
     [SerializeField]
     float onStopTolerance = 250;
@@ -213,7 +215,7 @@ public class SculptingUI : MonoBehaviour {
             stopped = true;
         });
         Catapult catapult = sculpture.GetComponent<Catapult>();
-        catapult.SetThrust(launchThrust);
+        catapult.SetThrust(launchThrust, maxJitterX);
         catapult.OnLaunch(() => {
             updateCameraTarget(sculptureTrackingPoint, fieldOfView);
             onStop.ToggleListening(true);

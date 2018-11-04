@@ -2832,6 +2832,7 @@ MonoBehaviour:
   buyItScreen: {fileID: 1321797455}
   superImposedScore: {fileID: 1009371683}
   launchThrust: {x: 6000000, y: 4000000}
+  maxJitterX: 400000
   fieldOfView: 90
   onStopTolerance: 300
   timeToLaunchCountdown: 5
@@ -4859,7 +4860,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1547013257}
-  m_LocalRotation: {x: -0.034458213, y: 0.011495053, z: -0.31624088, w: -0.9479832}
+  m_LocalRotation: {x: -0.034458198, y: 0.011495038, z: -0.31624088, w: -0.9479832}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
