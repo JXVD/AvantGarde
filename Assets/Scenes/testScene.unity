@@ -2829,6 +2829,8 @@ MonoBehaviour:
   audioManager: {fileID: 990871467}
   joiner: {fileID: 404650307}
   buyItScreen: {fileID: 1321797455}
+  forceQuitRunner: {fileID: 1139020958328752, guid: b9a3c2e4d63b54ff39f1a8682db46505,
+    type: 2}
   launchThrust: {x: 6000000, y: 4000000}
   fieldOfView: 90
   onStopTolerance: 300
@@ -4781,7 +4783,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1547013257}
-  m_LocalRotation: {x: -0.034458175, y: 0.011495017, z: -0.31624088, w: -0.9479832}
+  m_LocalRotation: {x: -0.034458183, y: 0.011495014, z: -0.31624088, w: -0.9479832}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

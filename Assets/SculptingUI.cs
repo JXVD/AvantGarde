@@ -36,6 +36,8 @@ public class SculptingUI : MonoBehaviour {
     GameObject joiner;
     [SerializeField]
     GameObject buyItScreen;
+    [SerializeField]
+    GameObject forceQuitRunner;
 
     // Tuning:
     [SerializeField]
@@ -212,6 +214,7 @@ public class SculptingUI : MonoBehaviour {
             buyItScreen.SetActive(true);
             audioManager.GetComponent<AudioManager>().playMoneyNoise();
             stopped = true;
+            Instantiate(forceQuitRunner);
         });
         Catapult catapult = sculpture.GetComponent<Catapult>();
         catapult.SetThrust(launchThrust);
