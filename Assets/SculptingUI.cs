@@ -30,12 +30,18 @@ public class SculptingUI : MonoBehaviour {
     GameObject joiner;
     [SerializeField]
     GameObject catapultPrompt;
+    [SerializeField]
+    GameObject buyItScreen;
 
     // Tuning:
     [SerializeField]
     Vector2 launchThrust = new Vector2(3000, 2000);
     [SerializeField]
     float fieldOfView = 90;
+    [SerializeField]
+    float onStopTolerance = 250;
+
+    // Debugging
     [SerializeField]
     bool debugEnabled = false;
 
@@ -176,11 +182,18 @@ public class SculptingUI : MonoBehaviour {
         centerPosition.y /= foundObjects.Count - 1;
         centerPosition.z /= foundObjects.Count - 1;
         GameObject sculpture = joiner.GetComponent<ObjectJoiner>().Join("Sculpture", foundObjects.ToArray(), centerPosition);
+        TriggerOnStop onStop = sculpture.AddComponent<TriggerOnStop>();
+        onStop.ToggleListening(false);
+        onStop.SetVelocityTolerance(onStopTolerance);
+        onStop.OnStop(() => {
+            buyItScreen.SetActive(true);
+        });
         Catapult catapult = sculpture.GetComponent<Catapult>();
         catapult.SetThrust(launchThrust);
-        catapult.OnLaunch(() => { 
+        catapult.OnLaunch(() => {
             updateCameraTarget(sculpture.transform, fieldOfView);
             catapultPrompt.SetActive(false);
+            onStop.ToggleListening(true);
         });
     }
 
