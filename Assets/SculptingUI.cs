@@ -36,6 +36,8 @@ public class SculptingUI : MonoBehaviour {
     [SerializeField]
     GameObject joiner;
     [SerializeField]
+    GameObject forceQuitRunner;
+    [SerializeField]
     GameObject buyItScreen;
     [SerializeField]
     Text superImposedScore;
@@ -211,6 +213,7 @@ public class SculptingUI : MonoBehaviour {
             showBuyScreen();
             audioManager.GetComponent<AudioManager>().playMoneyNoise();
             stopped = true;
+            Instantiate(forceQuitRunner);
         });
         Catapult catapult = sculpture.GetComponent<Catapult>();
         catapult.SetThrust(launchThrust);
