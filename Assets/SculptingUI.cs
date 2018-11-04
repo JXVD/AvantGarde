@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.UI;
 using System;
 
 public class SculptingUI : MonoBehaviour {
-    
+    GameObject sculpture;
     public GameObject quiver;
     public GameObject xArrow;
     public GameObject yArrow;
@@ -13,6 +14,7 @@ public class SculptingUI : MonoBehaviour {
     public GameObject[] prefabs = new GameObject [2];
     private List<GameObject> foundObjects = new List<GameObject>();
     public GameObject generatedObjects;
+    public Text scoreDisplay;
     public GameObject finishButton;
     public Transform spawnPoint;
     public Camera cam;
@@ -24,7 +26,9 @@ public class SculptingUI : MonoBehaviour {
     private int itemsGenerated = 0;
     public int finishButtonNumber;
     private bool finished;
+    private bool stopped;
     private Vector3 centerPosition;
+    private float score;
     System.Random rando = new System.Random();
     [SerializeField]
     GameObject joiner;
@@ -48,6 +52,8 @@ public class SculptingUI : MonoBehaviour {
     // Use this for initialization
     void Start () {
         finished = false;
+        stopped = false;
+        scoreDisplay.text = "";
 	}
 
     // Update is called once per frame
@@ -148,6 +154,15 @@ public class SculptingUI : MonoBehaviour {
 
             }
         }
+        //creating a score display
+        if(sculpture && !stopped)
+        {
+            score = Mathf.RoundToInt(sculpture.GetComponent<Rigidbody>().position.z - centerPosition.z);
+            if (score > 0)
+            {
+                scoreDisplay.text = score.ToString();
+            }
+        }
     }
 
     
@@ -181,12 +196,13 @@ public class SculptingUI : MonoBehaviour {
         centerPosition.x /= foundObjects.Count - 1;
         centerPosition.y /= foundObjects.Count - 1;
         centerPosition.z /= foundObjects.Count - 1;
-        GameObject sculpture = joiner.GetComponent<ObjectJoiner>().Join("Sculpture", foundObjects.ToArray(), centerPosition);
+        sculpture = joiner.GetComponent<ObjectJoiner>().Join("Sculpture", foundObjects.ToArray(), centerPosition);
         TriggerOnStop onStop = sculpture.AddComponent<TriggerOnStop>();
         onStop.ToggleListening(false);
         onStop.SetVelocityTolerance(onStopTolerance);
         onStop.OnStop(() => {
             buyItScreen.SetActive(true);
+            stopped = true;
         });
         Catapult catapult = sculpture.GetComponent<Catapult>();
         catapult.SetThrust(launchThrust);
@@ -195,6 +211,7 @@ public class SculptingUI : MonoBehaviour {
             catapultPrompt.SetActive(false);
             onStop.ToggleListening(true);
         });
+        
     }
 
     void updateCameraTarget(Transform target, float fieldOfView) {
