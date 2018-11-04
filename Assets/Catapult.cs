@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Catapult : MonoBehaviour {
     Vector2 thrust = Vector2.one;
+    float maxJitterX = 0;
     bool launched = false;
     [SerializeField]
     bool debugEnabled = false;
@@ -18,8 +19,9 @@ public class Catapult : MonoBehaviour {
         launch();
     }
 
-    public void SetThrust(Vector2 thrust) {
+    public void SetThrust(Vector2 thrust, float maxJitterX) {
         this.thrust = thrust;
+        this.maxJitterX = maxJitterX;
     }
 
     void launch() {
@@ -27,9 +29,10 @@ public class Catapult : MonoBehaviour {
         Vector2 thrustPerChild = thrust / rigidbodies.Length;
         foreach (Rigidbody rb in rigidbodies)
         {
-            if (debugEnabled) Debug.LogFormat("Launched {0} with {1} thurst", rb.name, thrustPerChild);
-            rb.AddForce(Vector3.up * thrustPerChild.y, ForceMode.Impulse);
-            rb.AddForce(Vector3.forward * thrustPerChild.x, ForceMode.Impulse);
+            float jitterX = UnityEngine.Random.Range(-maxJitterX, maxJitterX);
+            if (debugEnabled) Debug.LogFormat("Launched {0} with {1} thurst and {2} x jitter", rb.name, thrustPerChild, jitterX);
+            Vector3 thrustVector = new Vector3(jitterX, thrustPerChild.y, thrustPerChild.x);
+            rb.AddForce(thrustVector, ForceMode.Impulse);
         }
         if (onLaunch != null)
         {

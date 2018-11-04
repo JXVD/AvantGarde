@@ -13,10 +13,22 @@ public class CatapultFunctionalTest : MonoBehaviour {
     [SerializeField]
     Vector2 testThrust;
 
+    [SerializeField]
+    float testJitterX = 1;
+
+    Catapult catapult;
+
     void Start () {
         GameObject sculpture = joiner.Join("SculptureTest", sculptureComponents, joinCenter);
-        Catapult catapult = sculpture.GetComponent<Catapult>();
-        catapult.SetThrust(testThrust);
+        catapult = sculpture.GetComponent<Catapult>();
+        catapult.SetThrust(testThrust, testJitterX);
         catapult.EnableDebug();
 	}
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            catapult.StartCountdown(0);
+        }
+    }
 }
