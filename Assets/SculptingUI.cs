@@ -42,9 +42,9 @@ public class SculptingUI : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        finishButton.SetActive(itemsGenerated > finishButtonNumber);
         if (!finished)
         {
+            finishButton.SetActive(itemsGenerated > finishButtonNumber);
             if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
             {
                 RaycastHit hit;
