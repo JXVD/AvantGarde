@@ -30,14 +30,17 @@ public class SculptingUI : MonoBehaviour {
     private Vector3 centerPosition;
     private float score;
     System.Random rando = new System.Random();
+    Transform sculptureTrackingPoint; // Track first child in sculpture
     [SerializeField]
     GameObject audioManager;
     [SerializeField]
     GameObject joiner;
     [SerializeField]
+    GameObject forceQuitRunner;
+    [SerializeField]
     GameObject buyItScreen;
     [SerializeField]
-    GameObject forceQuitRunner;
+    Text superImposedScore;
 
     // Tuning:
     [SerializeField]
@@ -162,16 +165,11 @@ public class SculptingUI : MonoBehaviour {
         //creating a score display
         if(sculpture && !stopped)
         {
-            score = Mathf.RoundToInt(sculpture.transform.position.z - centerPosition.z);
+            score = Mathf.RoundToInt(sculptureTrackingPoint.position.z - centerPosition.z);
             if (score > 0)
             {
                 scoreDisplay.text = score.ToString();
             }
-        }
-        if(stopped)
-        {
-            scoreDisplay.text.Insert(0, "$");
-            //scoreDisplay.fontSize = 50;
         }
     }
 
@@ -207,11 +205,12 @@ public class SculptingUI : MonoBehaviour {
         centerPosition.y /= foundObjects.Count - 1;
         centerPosition.z /= foundObjects.Count - 1;
         sculpture = joiner.GetComponent<ObjectJoiner>().Join("Sculpture", foundObjects.ToArray(), centerPosition);
+        sculptureTrackingPoint = sculpture.transform.GetChild(0);
         TriggerOnStop onStop = sculpture.AddComponent<TriggerOnStop>();
         onStop.ToggleListening(false);
         onStop.SetVelocityTolerance(onStopTolerance);
         onStop.OnStop(() => {
-            buyItScreen.SetActive(true);
+            showBuyScreen();
             audioManager.GetComponent<AudioManager>().playMoneyNoise();
             stopped = true;
             Instantiate(forceQuitRunner);
@@ -219,7 +218,7 @@ public class SculptingUI : MonoBehaviour {
         Catapult catapult = sculpture.GetComponent<Catapult>();
         catapult.SetThrust(launchThrust);
         catapult.OnLaunch(() => {
-            updateCameraTarget(sculpture.transform.GetChild(0), fieldOfView);
+            updateCameraTarget(sculptureTrackingPoint, fieldOfView);
             onStop.ToggleListening(true);
         });
         catapult.StartCountdown(timeToLaunchCountdown);
@@ -230,5 +229,11 @@ public class SculptingUI : MonoBehaviour {
         cinemachine.LookAt = target;
         cinemachine.Follow = target;
         cinemachine.m_Lens.FieldOfView = fieldOfView;
+    }
+
+    void showBuyScreen() {
+        buyItScreen.SetActive(true);
+        scoreDisplay.gameObject.SetActive(false);
+        superImposedScore.text = string.Format("${0:n}", float.Parse(scoreDisplay.text));
     }
 }
