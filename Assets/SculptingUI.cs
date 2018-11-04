@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System;
 
 public class SculptingUI : MonoBehaviour {
+    [Header("Logic")]
     GameObject sculpture;
     public GameObject quiver;
     public GameObject xArrow;
@@ -41,8 +42,12 @@ public class SculptingUI : MonoBehaviour {
     GameObject buyItScreen;
     [SerializeField]
     Text superImposedScore;
+    [SerializeField]
+    TriggerOnCollide onFallOffHill;
+    [SerializeField]
+    BuyGuyUI buyGuyUI;
 
-    // Tuning:
+    [Header("Tuning")]
     [SerializeField]
     Vector2 launchThrust = new Vector2(3000, 2000);
     [SerializeField]
@@ -53,8 +58,10 @@ public class SculptingUI : MonoBehaviour {
     float onStopTolerance = 250;
     [SerializeField]
     float timeToLaunchCountdown = 5;
+    [SerializeField]
+    string buyGuyRejectDialogue = "This is worthless!";
 
-    // Debugging
+    [Header("Debugging")]
     [SerializeField]
     bool debugEnabled = false;
 
@@ -212,10 +219,15 @@ public class SculptingUI : MonoBehaviour {
         onStop.ToggleListening(false);
         onStop.SetVelocityTolerance(onStopTolerance);
         onStop.OnStop(() => {
-            showBuyScreen();
-            audioManager.GetComponent<AudioManager>().playMoneyNoise();
-            stopped = true;
-            Instantiate(forceQuitRunner);
+            if (score > 0)
+            {
+                showBuyScreen(score);
+                audioManager.GetComponent<AudioManager>().playMoneyNoise();
+                stopped = true;
+                Instantiate(forceQuitRunner);
+            } else {
+                makeGuyAngry();
+            }
         });
         Catapult catapult = sculpture.GetComponent<Catapult>();
         catapult.SetThrust(launchThrust, maxJitterX);
@@ -223,7 +235,20 @@ public class SculptingUI : MonoBehaviour {
             updateCameraTarget(sculptureTrackingPoint, fieldOfView);
             onStop.ToggleListening(true);
         });
+        onFallOffHill.SubscribeOnCollisionEnter((Collision collision) => {
+            if (collision.transform.parent == sculpture.transform) {
+                makeGuyAngry();
+            }
+        });
         catapult.StartCountdown(timeToLaunchCountdown);
+    }
+
+    void makeGuyAngry() {
+        buyGuyUI.SetDialogue(buyGuyRejectDialogue);
+        buyGuyUI.SetToMad();
+        showBuyScreen(0);
+        stopped = true;
+        Instantiate(forceQuitRunner);
     }
 
     void updateCameraTarget(Transform target, float fieldOfView) {
@@ -233,9 +258,9 @@ public class SculptingUI : MonoBehaviour {
         cinemachine.m_Lens.FieldOfView = fieldOfView;
     }
 
-    void showBuyScreen() {
+    void showBuyScreen(float price) {
         buyItScreen.SetActive(true);
         scoreDisplay.gameObject.SetActive(false);
-        superImposedScore.text = string.Format("${0:n}", float.Parse(scoreDisplay.text));
+        superImposedScore.text = string.Format("${0:n}", price);
     }
 }
