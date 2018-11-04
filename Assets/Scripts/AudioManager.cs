@@ -12,10 +12,17 @@ public class AudioManager : MonoBehaviour
     AudioSource sfxChannel;
 
     [SerializeField]
+    AudioSource cashChannel;
+
+    [SerializeField]
     AudioClip sculptingClip;
 
     [SerializeField]
     AudioClip glassClip;
+
+
+    [SerializeField]
+    AudioClip cashRegisterClip;
 
     [SerializeField]
     AudioClip[] moneyClip;
@@ -37,9 +44,14 @@ public class AudioManager : MonoBehaviour
 
     public void playMoneyNoise()
     {
+
+        cashChannel.clip = cashRegisterClip;
+        cashChannel.Play();
         sfxChannel.clip = moneyClip[rando.Next(0, moneyClip.Length-1)];
         sfxChannel.Play();
         sfxChannel.loop = false;
     }
+
+
 
 }
