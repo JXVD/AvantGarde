@@ -44,6 +44,7 @@ ModelImporter:
     100076: Hill:Hill:side
     100078: Hill:Hill:typeMesh1
     100080: //RootNode
+    100082: Hill:Hill:Hill:Hill:Hill:Hill:pCube9
     400000: Hill:Hill:Hill:Hill:pCube28
     400002: Hill:Hill:Hill:Hill:pCube29
     400004: Hill:Hill:Hill:Hill:pCube30
@@ -85,6 +86,7 @@ ModelImporter:
     400076: Hill:Hill:side
     400078: Hill:Hill:typeMesh1
     400080: //RootNode
+    400082: Hill:Hill:Hill:Hill:Hill:Hill:pCube9
     2100000: initialShadingGroup
     2100002: lambert3SG
     2100004: blinn1SG
@@ -130,6 +132,7 @@ ModelImporter:
     2300074: Hill:Hill:polySurface49
     2300076: Hill:Hill:side
     2300078: Hill:Hill:typeMesh1
+    2300080: Hill:Hill:Hill:Hill:Hill:Hill:pCube9
     3300000: Hill:Hill:Hill:Hill:pCube28
     3300002: Hill:Hill:Hill:Hill:pCube29
     3300004: Hill:Hill:Hill:Hill:pCube30
@@ -170,6 +173,7 @@ ModelImporter:
     3300074: Hill:Hill:polySurface49
     3300076: Hill:Hill:side
     3300078: Hill:Hill:typeMesh1
+    3300080: Hill:Hill:Hill:Hill:Hill:Hill:pCube9
     4300000: Hill:Hill:Hill:Hill:pCube28
     4300002: Hill:Hill:Hill:Hill:pCube29
     4300004: Hill:Hill:Hill:Hill:pCube30
@@ -210,6 +214,7 @@ ModelImporter:
     4300074: Hill:Hill:polySurface49
     4300076: Hill:Hill:side
     4300078: Hill:Hill:typeMesh1
+    4300080: Hill:Hill:Hill:Hill:Hill:Hill:pCube9
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
