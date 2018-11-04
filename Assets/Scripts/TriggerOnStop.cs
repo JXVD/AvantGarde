@@ -26,16 +26,27 @@ public class TriggerOnStop : MonoBehaviour {
         onStop += action;
     }
 
-    void Update() {
+    void Update()
+    {
         if (!isListening) return;
         float magnitude = pollMagnitude();
         if (debugEnabled) Debug.LogFormat("Total Magnitude is {0}", magnitude);
-        if (!hasStopped && 
-            magnitude <= velocityTolerance && 
-            onStop != null) {
-            onStop();
-            hasStopped = true;
+        if (!hasStopped &&
+            magnitude <= velocityTolerance &&
+            onStop != null)
+        {
+            triggerStop();
         }
+#if UNITY_EDITOR
+        if (debugEnabled && Input.GetKeyDown(KeyCode.Space)) {
+            triggerStop();
+        }
+#endif
+    }
+
+    void triggerStop() {
+        onStop();
+        hasStopped = true;
     }
 
     float pollMagnitude() {
