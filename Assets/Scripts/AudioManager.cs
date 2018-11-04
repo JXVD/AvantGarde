@@ -1,16 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour {
-    [Header("Audio Sources")]
+public class AudioManager : MonoBehaviour
+{
     [SerializeField]
     AudioSource musicChannel;
 
     [SerializeField]
     AudioSource sfxChannel;
 
-    [Header("Audio Clips")]
     [SerializeField]
     AudioClip sculptingClip;
 
@@ -18,8 +18,9 @@ public class AudioManager : MonoBehaviour {
     AudioClip glassClip;
 
     [SerializeField]
-    AudioClip moneyClip;
+    AudioClip[] moneyClip;
 
+    System.Random rando = new System.Random();
     void Start()
     {
         musicChannel.clip = sculptingClip;
@@ -36,7 +37,7 @@ public class AudioManager : MonoBehaviour {
 
     public void playMoneyNoise()
     {
-        sfxChannel.clip = moneyClip;
+        sfxChannel.clip = moneyClip[rando.Next(0, moneyClip.Length-1)];
         sfxChannel.Play();
         sfxChannel.loop = false;
     }
