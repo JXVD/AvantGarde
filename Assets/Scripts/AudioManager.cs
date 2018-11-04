@@ -20,6 +20,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     AudioClip glassClip;
 
+    [SerializeField]
+    AudioClip trillClip;
 
     [SerializeField]
     AudioClip cashRegisterClip;
@@ -52,6 +54,12 @@ public class AudioManager : MonoBehaviour
         sfxChannel.loop = false;
     }
 
+    public void playTrill()
+    {
+        cashChannel.clip = trillClip;
+        cashChannel.Play();
+        cashChannel.loop = false;
+    }
 
 
 }

@@ -195,7 +195,6 @@ public class SculptingUI : MonoBehaviour {
 
     public void finishSculpture()
     {
-        
         if (debugEnabled) Debug.Log("IT IS DONE!");
         finished = true;
         for(int x = 0; x < foundObjects.Count;x++)
@@ -206,6 +205,7 @@ public class SculptingUI : MonoBehaviour {
         centerPosition.x /= foundObjects.Count - 1;
         centerPosition.y /= foundObjects.Count - 1;
         centerPosition.z /= foundObjects.Count - 1;
+        audioManager.GetComponent<AudioManager>().playTrill();
         sculpture = joiner.GetComponent<ObjectJoiner>().Join("Sculpture", foundObjects.ToArray(), centerPosition);
         sculptureTrackingPoint = sculpture.transform.GetChild(0);
         TriggerOnStop onStop = sculpture.AddComponent<TriggerOnStop>();
