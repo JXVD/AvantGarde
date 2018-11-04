@@ -20,12 +20,22 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     AudioClip glassClip;
 
+    [SerializeField]
+    AudioClip trillClip;
 
     [SerializeField]
     AudioClip cashRegisterClip;
 
     [SerializeField]
     AudioClip[] moneyClip;
+
+    [Header("Tuning")]
+    [SerializeField]
+    float fadeTime = 1f;
+    [SerializeField]
+    float volumeDown = 0.25f;
+    [SerializeField]
+    float fullVolume = 1.0f;
 
     System.Random rando = new System.Random();
     void Start()
@@ -52,6 +62,28 @@ public class AudioManager : MonoBehaviour
         sfxChannel.loop = false;
     }
 
+    public void playTrill()
+    {
+        StartCoroutine(lerpVolume(musicChannel, volumeDown, fadeTime));
+        cashChannel.clip = trillClip;
+        cashChannel.Play();
+        cashChannel.loop = false;
+        StartCoroutine(waitToChangeVolume(musicChannel, fullVolume, cashChannel.clip.length));
+    }
 
+    IEnumerator waitToChangeVolume(AudioSource channel, float newVolume, float waitTime) {
+        yield return new WaitForSeconds(waitTime);
+        StartCoroutine(lerpVolume(channel, newVolume, fadeTime));
+    }
 
+    IEnumerator lerpVolume(AudioSource channel, float newVolume, float lerpTime) {
+        float originalVolume = channel.volume;
+        float timer = 0;
+        while (timer <= lerpTime) {
+            channel.volume = Mathf.Lerp(originalVolume, newVolume, timer / lerpTime);
+            yield return new WaitForEndOfFrame();
+            timer += Time.deltaTime;
+        }
+        channel.volume = newVolume;
+    }
 }
