@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
+    [Header("Audio Sources")]
     [SerializeField]
     AudioSource musicChannel;
 
     [SerializeField]
     AudioSource sfxChannel;
 
+    [Header("Audio Clips")]
     [SerializeField]
     AudioClip sculptingClip;
 
@@ -34,7 +36,7 @@ public class AudioManager : MonoBehaviour {
 
     public void playMoneyNoise()
     {
-        sfxChannel.clip = glassClip;
+        sfxChannel.clip = moneyClip;
         sfxChannel.Play();
         sfxChannel.loop = false;
     }
