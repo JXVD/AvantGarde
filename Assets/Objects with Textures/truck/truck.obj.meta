@@ -1,25 +1,19 @@
 fileFormatVersion: 2
-guid: 359c4d107146543ca8a275e5bed03c39
+guid: 5fb4a8e72d4ff1b438bb79f5117f6f65
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: polySurface192
-    100004: Hill:Hill:Hill:Hill:polySurface185
-    400000: //RootNode
-    400002: polySurface192
-    400004: Hill:Hill:Hill:Hill:polySurface185
-    2100000: lambert4SG
-    2100002: lambert3SG
-    2100004: initialShadingGroup
-    2100006: lambert7SG
-    2100008: lambert10SG
-    2300000: polySurface192
-    2300002: Hill:Hill:Hill:Hill:polySurface185
-    3300000: polySurface192
-    3300002: Hill:Hill:Hill:Hill:polySurface185
-    4300000: polySurface192
-    4300002: Hill:Hill:Hill:Hill:polySurface185
+    100000: Hill:Hill:Hill:Hill:pCube2
+    100002: //RootNode
+    400000: Hill:Hill:Hill:Hill:pCube2
+    400002: //RootNode
+    2100000: lambert3SG
+    2100002: Hill_Hill_lambert1SG
+    2100004: lambert7SG
+    2100006: lambert10SG
+    2300000: Hill:Hill:Hill:Hill:pCube2
+    3300000: Hill:Hill:Hill:Hill:pCube2
+    4300000: Hill:Hill:Hill:Hill:pCube2
   externalObjects: {}
   materials:
     importMaterials: 1

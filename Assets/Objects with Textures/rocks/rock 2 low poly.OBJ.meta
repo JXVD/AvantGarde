@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: 359c4d107146543ca8a275e5bed03c39
+guid: 6d8239f8dd5df3f46b937c237cf2262a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: polySurface192
-    100004: Hill:Hill:Hill:Hill:polySurface185
+    100002: rock_2_low_poly:Group991
     400000: //RootNode
-    400002: polySurface192
-    400004: Hill:Hill:Hill:Hill:polySurface185
-    2100000: lambert4SG
-    2100002: lambert3SG
-    2100004: initialShadingGroup
-    2100006: lambert7SG
-    2100008: lambert10SG
-    2300000: polySurface192
-    2300002: Hill:Hill:Hill:Hill:polySurface185
-    3300000: polySurface192
-    3300002: Hill:Hill:Hill:Hill:polySurface185
-    4300000: polySurface192
-    4300002: Hill:Hill:Hill:Hill:polySurface185
+    400002: rock_2_low_poly:Group991
+    2100000: rock_2_low_poly_Group991Mat
+    2300000: rock_2_low_poly:Group991
+    3300000: rock_2_low_poly:Group991
+    4300000: rock_2_low_poly:Group991
   externalObjects: {}
   materials:
     importMaterials: 1
