@@ -4,6 +4,8 @@ using UnityEngine;
 public class TriggerOnCollide : MonoBehaviour {
     [SerializeField]
     bool onlyTriggerOnce;
+    [SerializeField]
+    bool debugEnabled;
 
     bool triggered = false;
 
@@ -17,6 +19,7 @@ public class TriggerOnCollide : MonoBehaviour {
     {
         if (!triggered || !onlyTriggerOnce)
         {
+            if (debugEnabled) Debug.LogFormat("Collided with {0}", collision.collider);
             if (onCollide != null)
             {
                 onCollide(collision);

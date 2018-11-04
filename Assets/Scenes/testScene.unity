@@ -2835,7 +2835,7 @@ MonoBehaviour:
   onFallOffHill: {fileID: 1050389762}
   buyGuyUI: {fileID: 1321797457}
   launchThrust: {x: 600000, y: 400000}
-  maxJitterX: 6000
+  maxJitterX: 60000000
   fieldOfView: 90
   onStopTolerance: 300
   timeToLaunchCountdown: 5
@@ -3870,13 +3870,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1050389760}
-  m_LocalRotation: {x: 0, y: -0.24653389, z: 0.9691342, w: 0}
+  m_LocalRotation: {x: 0.24653389, y: 0, z: 0, w: 0.9691342}
   m_LocalPosition: {x: 0, y: -44051, z: 52536}
-  m_LocalScale: {x: 200000, y: 10000, z: 100000}
+  m_LocalScale: {x: 40000000, y: 10000, z: 100000}
   m_Children: []
   m_Father: {fileID: 1128907562}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 28.545002, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 28.545002, y: 0, z: 0}
 --- !u!114 &1050389762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3889,6 +3889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onlyTriggerOnce: 1
+  debugEnabled: 1
 --- !u!64 &1050389763
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5025,7 +5026,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1547013257}
-  m_LocalRotation: {x: -0.034458183, y: 0.011495029, z: -0.31624088, w: -0.9479832}
+  m_LocalRotation: {x: -0.034458183, y: 0.011495014, z: -0.31624088, w: -0.9479832}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
