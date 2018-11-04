@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44780076, g: 0.49778354, b: 0.57543147, a: 1}
+  m_IndirectSpecularColor: {r: 0.44780087, g: 0.49778348, b: 0.57543164, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2917,7 +2917,7 @@ MonoBehaviour:
   joiner: {fileID: 404650307}
   catapultPrompt: {fileID: 1128370562}
   buyItScreen: {fileID: 1321797455}
-  launchThrust: {x: 3000, y: 2000}
+  launchThrust: {x: 6000000, y: 4000000}
   fieldOfView: 90
   onStopTolerance: 300
   debugEnabled: 0

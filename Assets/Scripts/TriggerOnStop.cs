@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class TriggerOnStop : MonoBehaviour {
-    Rigidbody physics;
+    Rigidbody[] rigidbodies;
     float velocityTolerance = 0.01f;
     Action onStop;
     bool hasStopped = false;
@@ -14,7 +11,7 @@ public class TriggerOnStop : MonoBehaviour {
     bool isListening = true;
 
     void Awake() {
-        physics = GetComponent<Rigidbody>();
+        rigidbodies = GetComponentsInChildren<Rigidbody>();
     }
 
     public void ToggleListening(bool isListening) {
@@ -31,13 +28,21 @@ public class TriggerOnStop : MonoBehaviour {
 
     void Update() {
         if (!isListening) return;
-
-        if (debugEnabled) Debug.Log(physics.velocity.magnitude);
+        float magnitude = pollMagnitude();
+        if (debugEnabled) Debug.LogFormat("Total Magnitude is {0}", magnitude);
         if (!hasStopped && 
-            physics.velocity.magnitude <= velocityTolerance && 
+            magnitude <= velocityTolerance && 
             onStop != null) {
             onStop();
             hasStopped = true;
         }
+    }
+
+    float pollMagnitude() {
+        float totalMagnitude = 0;
+        foreach (Rigidbody rb in rigidbodies) {
+            totalMagnitude += rb.velocity.magnitude;
+        }
+        return totalMagnitude;
     }
 }

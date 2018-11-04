@@ -1,20 +1,13 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Catapult : MonoBehaviour {
     Vector2 thrust = Vector2.one;
-    public Rigidbody rb;
     bool launched = false;
     [SerializeField]
     bool debugEnabled = false;
 
     Action onLaunch;
-    // Use this for initialization
-    void Start () {
-        rb = GetComponent<Rigidbody>();
-    }
 
     public void SetThrust(Vector2 thrust) {
         this.thrust = thrust;
@@ -25,17 +18,25 @@ public class Catapult : MonoBehaviour {
         
         if(Input.GetMouseButtonDown(1) && !launched)
         {
-            rb.AddForce(transform.up * thrust.y, ForceMode.VelocityChange);
-            rb.AddForce(transform.forward * thrust.x, ForceMode.VelocityChange);
-            if (debugEnabled) {
-                Debug.LogFormat("Launched {0} with {1} thrust", name, thrust);
-            }
-            launched = true;
-            if(onLaunch != null) {
-                onLaunch();
-            }
+            launch();
         }
 	}
+
+    void launch() {
+        Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
+        Vector2 thrustPerChild = thrust / rigidbodies.Length;
+        foreach (Rigidbody rb in rigidbodies)
+        {
+            if (debugEnabled) Debug.LogFormat("Launched {0} with {1} thurst", rb.name, thrustPerChild);
+            rb.AddForce(Vector3.up * thrustPerChild.y, ForceMode.Impulse);
+            rb.AddForce(Vector3.forward * thrustPerChild.x, ForceMode.Impulse);
+        }
+        if (onLaunch != null)
+        {
+            onLaunch();
+        }
+        launched = true;
+    }
 
     public void EnableDebug() {
         debugEnabled = true;

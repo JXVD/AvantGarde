@@ -160,7 +160,7 @@ public class SculptingUI : MonoBehaviour {
         //creating a score display
         if(sculpture && !stopped)
         {
-            score = Mathf.RoundToInt(sculpture.GetComponent<Rigidbody>().position.z - centerPosition.z);
+            score = Mathf.RoundToInt(sculpture.transform.position.z - centerPosition.z);
             if (score > 0)
             {
                 scoreDisplay.text = score.ToString();
@@ -216,11 +216,10 @@ public class SculptingUI : MonoBehaviour {
         Catapult catapult = sculpture.GetComponent<Catapult>();
         catapult.SetThrust(launchThrust);
         catapult.OnLaunch(() => {
-            updateCameraTarget(sculpture.transform, fieldOfView);
+            updateCameraTarget(sculpture.transform.GetChild(0), fieldOfView);
             catapultPrompt.SetActive(false);
             onStop.ToggleListening(true);
         });
-        
     }
 
     void updateCameraTarget(Transform target, float fieldOfView) {
