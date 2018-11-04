@@ -32,6 +32,8 @@ public class SculptingUI : MonoBehaviour {
     Vector2 launchThrust = new Vector2(3000, 2000);
     [SerializeField]
     float fieldOfView = 90;
+    [SerializeField]
+    bool debugEnabled = false;
 
     // Use this for initialization
     void Start () {
@@ -50,7 +52,8 @@ public class SculptingUI : MonoBehaviour {
 
                 if (Physics.Raycast(ray, out hit, 1000.0f))
                 {
-                    Debug.Log(ray.direction);
+                    if (debugEnabled) Debug.Log(ray.direction);
+                    if (debugEnabled) Debug.LogFormat("Clicked on {0}", hit.collider);
                     if (hit.transform != null && hit.transform.gameObject.tag == "selectable")
                     {
                         selectedObject = hit.transform.gameObject;
@@ -58,19 +61,19 @@ public class SculptingUI : MonoBehaviour {
                     }
                     else if (hit.transform != null && hit.transform.gameObject.tag == "xArrow")
                     {
-                        Debug.Log("clicking on arrow");
+                        if (debugEnabled) Debug.Log("clicking on X arrow");
                         selectedArrow = xArrow;
                         mousePos = Input.mousePosition;
                     }
                     else if (hit.transform != null && hit.transform.gameObject.tag == "yArrow")
                     {
-                        Debug.Log("clicking on arrow");
+                        if (debugEnabled) Debug.Log("clicking on Y arrow");
                         selectedArrow = yArrow;
                         mousePos = Input.mousePosition;
                     }
                     else if (hit.transform != null && hit.transform.gameObject.tag == "zArrow")
                     {
-                        Debug.Log("clicking on arrow");
+                        if (debugEnabled) Debug.Log("clicking on Z arrow");
                         selectedArrow = zArrow;
                         mousePos = Input.mousePosition;
                     }
@@ -87,7 +90,7 @@ public class SculptingUI : MonoBehaviour {
             }
             if (Input.GetMouseButton(0) && selectedArrow != null)
             {
-                Debug.Log("clicking on arrow");
+                if (debugEnabled) Debug.Log("clicking on arrow");
                 //if x, and mousePos.x is different than original, move obj by that much and the arrows too
 
                 Vector3 newTrans = selectedObject.transform.position;
@@ -102,7 +105,8 @@ public class SculptingUI : MonoBehaviour {
                 }
                 else if (selectedArrow.CompareTag("zArrow"))
                 {
-                    newTrans.z += (Input.mousePosition.x - mousePos.x);
+                    float delta = Input.mousePosition.x > Screen.width / 2 ? - Input.mousePosition.x + mousePos.x : Input.mousePosition.x - mousePos.x;
+                    newTrans.z += delta;
                 }
                 selectedObject.transform.SetPositionAndRotation(newTrans, selectedObject.transform.rotation);
                 moveArrows(selectedObject);
@@ -111,7 +115,7 @@ public class SculptingUI : MonoBehaviour {
             }
             if (Input.GetMouseButton(1) && selectedArrow != null)
             {
-                Debug.Log("clicking on arrow");
+                if (debugEnabled) Debug.Log("clicking on arrow");
                 //if x, and mousePos.x is different than original, move obj by that much and the arrows too
 
                 Quaternion newRotation = selectedObject.transform.rotation;
@@ -141,9 +145,9 @@ public class SculptingUI : MonoBehaviour {
 
     public void moveArrows(GameObject obj)
     {
-        xArrow.transform.SetPositionAndRotation(obj.transform.position + new Vector3(25, 50, 0), xArrow.transform.rotation);
-        yArrow.transform.SetPositionAndRotation(obj.transform.position + new Vector3(0,100,0), yArrow.transform.rotation);
-        zArrow.transform.SetPositionAndRotation(obj.transform.position + new Vector3(0,50, 35), zArrow.transform.rotation);
+        xArrow.transform.SetPositionAndRotation(obj.transform.position + new Vector3(50, 50, -50), xArrow.transform.rotation);
+        yArrow.transform.SetPositionAndRotation(obj.transform.position + new Vector3(0, 100,-50), yArrow.transform.rotation);
+        zArrow.transform.SetPositionAndRotation(obj.transform.position + new Vector3(0, 50, -100), zArrow.transform.rotation);
     }
 
 
