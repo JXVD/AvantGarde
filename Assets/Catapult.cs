@@ -28,8 +28,8 @@ public class Catapult : MonoBehaviour {
         foreach (Rigidbody rb in rigidbodies)
         {
             if (debugEnabled) Debug.LogFormat("Launched {0} with {1} thurst", rb.name, thrustPerChild);
-            rb.AddForce(rb.transform.up * thrustPerChild.y, ForceMode.Impulse);
-            rb.AddForce(rb.transform.forward * thrustPerChild.x, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * thrustPerChild.y, ForceMode.Impulse);
+            rb.AddForce(Vector3.forward * thrustPerChild.x, ForceMode.Impulse);
         }
         if (onLaunch != null)
         {
