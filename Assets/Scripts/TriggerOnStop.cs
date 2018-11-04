@@ -35,6 +35,7 @@ public class TriggerOnStop : MonoBehaviour {
             physics.velocity.magnitude <= velocityTolerance && 
             onStop != null) {
             onStop();
+            hasStopped = true;
         }
     }
 }

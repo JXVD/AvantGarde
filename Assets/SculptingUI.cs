@@ -31,6 +31,8 @@ public class SculptingUI : MonoBehaviour {
     private float score;
     System.Random rando = new System.Random();
     [SerializeField]
+    GameObject audioManager;
+    [SerializeField]
     GameObject joiner;
     [SerializeField]
     GameObject catapultPrompt;
@@ -121,8 +123,9 @@ public class SculptingUI : MonoBehaviour {
                 }
                 else if (selectedArrow.CompareTag("zArrow"))
                 {
-                    float delta = Input.mousePosition.x > Screen.width / 2 ? - Input.mousePosition.x + mousePos.x : Input.mousePosition.x - mousePos.x;
-                    newTrans.z += delta;
+                    //float delta = Input.mousePosition.x > Screen.width / 2 ? - Input.mousePosition.x + mousePos.x : Input.mousePosition.x - mousePos.x;
+                    //newTrans.z += delta;
+                    newTrans.z += (Input.mousePosition.x - mousePos.x);
                 }
                 selectedObject.transform.SetPositionAndRotation(newTrans, selectedObject.transform.rotation);
                 moveArrows(selectedObject);
@@ -163,6 +166,11 @@ public class SculptingUI : MonoBehaviour {
                 scoreDisplay.text = score.ToString();
             }
         }
+        if(stopped)
+        {
+            scoreDisplay.text.Insert(0, "$");
+            //scoreDisplay.fontSize = 50;
+        }
     }
 
     
@@ -202,6 +210,7 @@ public class SculptingUI : MonoBehaviour {
         onStop.SetVelocityTolerance(onStopTolerance);
         onStop.OnStop(() => {
             buyItScreen.SetActive(true);
+            audioManager.GetComponent<AudioManager>().playMoneyNoise();
             stopped = true;
         });
         Catapult catapult = sculpture.GetComponent<Catapult>();
