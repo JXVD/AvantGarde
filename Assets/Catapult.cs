@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class Catapult : MonoBehaviour {
@@ -6,21 +7,20 @@ public class Catapult : MonoBehaviour {
     bool launched = false;
     [SerializeField]
     bool debugEnabled = false;
-
     Action onLaunch;
+
+    public void StartCountdown(float countdownTime) {
+        StartCoroutine(countdownToLaunch(countdownTime));
+    }
+
+    IEnumerator countdownToLaunch(float countdownTime) {
+        yield return new WaitForSeconds(countdownTime);
+        launch();
+    }
 
     public void SetThrust(Vector2 thrust) {
         this.thrust = thrust;
     }
-
-	// Update is called once per frame
-	void FixedUpdate () {
-        
-        if(Input.GetMouseButtonDown(1) && !launched)
-        {
-            launch();
-        }
-	}
 
     void launch() {
         Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
