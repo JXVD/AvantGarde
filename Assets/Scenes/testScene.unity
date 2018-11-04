@@ -1318,6 +1318,10 @@ MonoBehaviour:
   - {fileID: 1901945570511764, guid: 53129acc18a566a459df4c36ea9000df, type: 2}
   - {fileID: 1081749369543302, guid: 6604fba42142b32459cc71f5171e543b, type: 2}
   - {fileID: 1250302706591740, guid: f61676947de076c428b94a977392c720, type: 2}
+  - {fileID: 1563608854828494, guid: 951af23d84de33b47ae62856bcd032be, type: 2}
+  - {fileID: 1139619526267940, guid: 98c4780eaa95f1848bc42cf33a193a97, type: 2}
+  - {fileID: 1518177998747122, guid: aaf5657b2724dd14eb8810191e5c3c3a, type: 2}
+  - {fileID: 1071932432747118, guid: f031b7e34990e454aad72b290925fec2, type: 2}
   generatedObjects: {fileID: 0}
   finishButton: {fileID: 811224291}
   spawnPoint: {fileID: 1866490652}
@@ -1844,7 +1848,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1547013257}
-  m_LocalRotation: {x: -0.034458183, y: 0.011495014, z: -0.31624088, w: -0.9479832}
+  m_LocalRotation: {x: -0.034458183, y: 0.011495029, z: -0.31624088, w: -0.9479832}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
